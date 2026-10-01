@@ -1,3 +1,11 @@
+"""
+src/ingest.py — Étape 1 : chargement des données.
+
+Responsabilité unique : obtenir les données brutes et les retourner
+sous forme de Liste de listes. Aucune transformation ici.
+"""
+
+
 # Les données sont stockées dans un format spécial : elles sont encodées puis chiffrées,
 # ce qui oblige à les déchiffrer avant de pouvoir les lire et les exploiter correctement.
 import base64
@@ -30,3 +38,12 @@ def read_grid(filename):
     # des caractères non valides ou des octets parasites.
     lines = decrypted_data.decode('utf-8', errors='ignore').splitlines()
     return lines
+
+def display_raw(lines, num_lines=10):
+    """
+    Affiche les premières lignes du fichier déchiffré pour vérification.
+
+    """
+    print(f"Nombre de lignes dans le fichier déchiffré : {len(lines)}")
+    for line in lines[:num_lines]:
+        print(line)
